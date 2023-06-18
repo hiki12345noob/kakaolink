@@ -1,19 +1,65 @@
-<!dochtml>
 <html>
-<title>화리 링트 전송용 사이트</title>
 <head>
-    <meta charset="utf-8"/>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>카톡 공유</title>
+<script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-<h1>화리 링크 전송하기<br>
+    <input type="button" onClick="sendLinkCustom();" value="Custom"/>
+    <input type="button" onClick="sendLinkDefault();" value="Default"/>
 
-   <a id="kakao-link-btn">
-     <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" width="195" height="195" style="max-width: 500%; height: auto;"> 
-   </a> 전송버튼</h1>
-	<script type='text/javascript'> 
-  	  Kakao.init('e77114aad39a3f8966efd12796534f9f');
-	  Kakao.Link.createCustomButton({container: '#kakao-link-btn', templateId: 896323,});
-	</script>
+<script type="text/javascript">
+    function sendLinkCustom() {
+        Kakao.init("e77114aad39a3f8966efd12796534f9f");
+        Kakao.Link.sendCustom({
+            templateId: 896323
+        });
+    }
+</script>
+
+<script>
+try {
+  function sendLinkDefault() {
+    Kakao.init('e77114aad39a3f8966efd12796534f9f')
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '페르시아 제국',
+        description: '#화리 #가국 #페르시아 제국',
+        imageUrl:
+          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        link: {
+          mobileWebUrl: 'https://open.kakao.com/o/gc5qbQ1e',
+          webUrl: 'https://open.kakao.com/o/gc5qbQ1e',
+        },
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845,
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://open.kakao.com/o/gc5qbQ1e',
+            webUrl: 'https://open.kakao.com/o/gc5qbQ1e',
+          },
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://open.kakao.com/o/gc5qbQ1e',
+            webUrl: 'https://open.kakao.com/o/gc5qbQ1e',
+          },
+        },
+      ],
+    })
+  }
+; window.kakaoDemoCallback && window.kakaoDemoCallback() }
+catch(e) { window.kakaoDemoException && window.kakaoDemoException(e) }
+</script>
+   
 </body>
-		    </html>
+</html>
+
