@@ -15,7 +15,45 @@
             templateId: 95208
         });
     }
+</script>
 
+<script>
+try {
+  function sendLinkDefault() {
+    Kakao.init('e77114aad39a3f8966efd12796534f9f')
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '람보르기니',
+        description: '#가국 #기업 #화리 #페르시아 제국 #람보르기니 #가상',
+        imageUrl:
+          'https://search3.kakaocdn.net/argon/656x0_80_wr/LR7BL4rSaAU',
+        link: {
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com',
+        },
+      },
+
+      buttons: [
+        {
+          title: '참가하기!',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+        {
+          title: '참여하기!',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+      ],
+    })
+  }
+; window.kakaoDemoCallback && window.kakaoDemoCallback() }
+catch(e) { window.kakaoDemoException && window.kakaoDemoException(e) }
 </script>
    
 </body>
